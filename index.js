@@ -64,3 +64,4 @@ app.listen(port, "0.0.0.0", () => {
   console.log(`✅ Addon is running at: http://localhost:${port}/manifest.json`);
 });
 
+
