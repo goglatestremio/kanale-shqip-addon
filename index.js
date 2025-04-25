@@ -60,9 +60,10 @@ app.get("/stream/:type/:id.json", async (req, res) => {
   res.json({ streams });
 });
 
-const port = process.env.PORT || 10000;
+const port = process.env.PORT;
 
-app.listen(port, "0.0.0.0", () => {
+
+server.listen(port, () => {
   console.log(`✅ Server is running at http://0.0.0.0:${port}/manifest.json`);
 });
 
