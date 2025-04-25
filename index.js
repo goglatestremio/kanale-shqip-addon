@@ -46,6 +46,7 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 80;
 
+
 app.get("/manifest.json", (req, res) => {
   res.json(builder.getInterface().manifest);
 });
