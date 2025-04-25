@@ -44,7 +44,6 @@ builder.defineStreamHandler(({ id }) => {
 module.exports = builder.getInterface();
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 10000;
 
 
 app.get("/manifest.json", (req, res) => {
