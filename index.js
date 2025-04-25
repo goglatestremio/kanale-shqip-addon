@@ -44,7 +44,7 @@ builder.defineStreamHandler(({ id }) => {
 module.exports = builder.getInterface();
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 10000;
 
 
 app.get("/manifest.json", (req, res) => {
@@ -61,9 +61,12 @@ app.get("/stream/:type/:id.json", async (req, res) => {
   res.json({ streams });
 });
 
+const port = process.env.PORT || 10000;
+
 app.listen(port, "0.0.0.0", () => {
-  console.log(`✅ Addon is running at: http://localhost:${port}/manifest.json`);
+  console.log(`✅ Server is running at http://0.0.0.0:${port}/manifest.json`);
 });
+
 
 
 
