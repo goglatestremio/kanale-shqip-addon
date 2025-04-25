@@ -41,11 +41,11 @@ builder.defineStreamHandler(({ id }) => {
   return Promise.resolve({ streams: stream ? [{ title: stream.title, url: stream.url }] : [] });
 });
 
-module.exports = builder.getInterface();
+// Express setup
 const express = require("express");
 const app = express();
 
-
+// Define routes
 app.get("/manifest.json", (req, res) => {
   res.json(builder.getInterface().manifest);
 });
@@ -60,19 +60,8 @@ app.get("/stream/:type/:id.json", async (req, res) => {
   res.json({ streams });
 });
 
-
-const { addonBuilder } = require("stremio-addon-sdk");
-const server = require('http').createServer(app); // <-- Make sure this is here
-
-// your manifest and handler setup...
-
-const port = process.env.PORT;
-
-server.listen(port, () => {
+// Start the server
+const port = process.env.PORT || 10000;
+app.listen(port, () => {
   console.log(`✅ Server is running at http://0.0.0.0:${port}/manifest.json`);
 });
-
-
-
-
-
